@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    body {
+        background-color: bisque;
+    }
+    canvas{
+        border: 1px;
+    }
+</style>
+<body>
+<canvas id="myCanvas" width="1300px" height="600px" style="border: 1px solid black; background-color: deepskyblue"></canvas>
+<script>
+    let canvas = document.getElementById('myCanvas');
+    let pen = canvas.getContext('2d');
+    class Retangle {
+        constructor(x,y) {
+            this.x=x;
+            this.y=y;
+        }
+        drawRetangle(pen){
+            pen.beginPath()
+            pen.rect(this.x,this.y,100,100)
+            pen.fillStyle = "red";
+            pen.fill();
+            pen.closePath();
+        }
+    }
+    let x=0;
+    let y=580;
+    let retangle= new Retangle(x,y)
+    retangle.drawRetangle(pen);
+</script>
+</body>
+</html>
