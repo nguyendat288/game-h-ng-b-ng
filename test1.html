@@ -5,7 +5,8 @@
     <title>Title</title>
     <style>
         canvas {
-            background-color: #99ff99;
+            background-color:#00FFFF ;
+
         }
     </style>
     <script src="test1.js"></script>
@@ -17,7 +18,7 @@
         <div>
             <center><h1>Welcome!!!</h1></center>
             <div>
-                <div id="inputName"><p>Tên của bạn là :</p></div>
+                <div><p>Tên của bạn là :</p></div>
                 <input type="text" id="a" class="name2" placeholder="Nhập tên"><br><br>
                 <span><center><button type="button" id="play" onclick="start2()">Play</button></center></span>
             </div>
@@ -34,7 +35,8 @@
 <div id="end-game" style="display: none">
     <div>
         <div>
-            <center><p id="win">You Win !!!</p></center>
+            <center><p id="win">Congratulations!!! <br>
+                You Win</p></center>
         </div>
 
     </div>
@@ -50,10 +52,7 @@
 </div>
 
 <script>
-    let name2 = document.getElementById("a").value;
-    // let name1=prompt("Nhập tên của bạn =  ");
-    // alert("Hello"+" "+ name1);
-    // alert("Are you ready ?")
+    let name2;
     let canvas = document.getElementById('myCanvas');
     let pen = canvas.getContext('2d');
     let interval = setInterval(draw, 10);
@@ -169,18 +168,21 @@
 
     //=================================================
     function checkGameOver() {
-      if(isGameWin){
-          document.getElementById("canvas1").style.display = "none"
-          document.getElementById("end-game").style.display = "block"
-          document.getElementById("lose").style.display = "none"
-          document.getElementById("winagain").style.display = "block"
-      }else {document.getElementById("score").innerHTML += " you lose with " + Score + " score";
-        document.getElementById("canvas1").style.display = "none"
-        document.getElementById("end-game").style.display = "block"
-        document.getElementById("win").style.display = "none"
-        document.getElementById("winagain").style.display = "block"
+        name2 = document.getElementById("a").value
+        if (isGameWin) {
+            document.getElementById("canvas1").style.display = "none"
+            document.getElementById("end-game").style.display = "block"
+            document.getElementById("lose").style.display = "none"
+            document.getElementById("winagain").style.display = "block"
+        } else {
+            document.getElementById("score").innerHTML += name2 + ", You lose with " + Score + " score";
+            document.getElementById("canvas1").style.display = "none"
+            document.getElementById("end-game").style.display = "block"
+            document.getElementById("win").style.display = "none"
+            document.getElementById("winagain").style.display = "block"
+        }
     }
-    }
+
     //======================================================
     function bouncedBack() {
         if (circle.x + 15 >= pad.x && circle.x + 15 <= pad.x + pad.width && circle.y + 15 >= canvas.height - pad.height) {
