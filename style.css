@@ -1,5 +1,5 @@
 body{
-    background-color: #00FFFF;
+    background: url("tải xuống.jpg") center / cover no-repeat;
     font-family: 'Georgia',VnArial;
     font-size: 25px;
 
@@ -32,4 +32,7 @@ body{
     height: 50px;
     background-color: bisque;
     font-size: x-large;
+}
+#myCanvas{
+    background-color: #99ff99;
 }
